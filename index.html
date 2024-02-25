@@ -56,25 +56,42 @@
         </div>
 
         <div class="dash-content">
-            <div class="overview">
-                <div class="boxes">
-                    <div class="box box1">
-                    </div>
-                    <div class="box box2">
-                        <h2>Lorem Ipsum</h2>
-                        <h3>is dummy text</h3>
-                        <p>Lorem ipsum dolor sit amet  nostrum omnis voluptas, possimus hic sequi!</p>
-                        <div class="squre">
-                            <div class="s1"></div>
-                            <div class="s1"></div>
-                            <div class="s1"></div>
-                            <div class="s1"></div>
-                        </div>
-                        <button>PRODUCT</button>
-                    </div>
+            <div class="slideshow">
+                <div class="carousel">
+                  <div class="slide active">
+                    <img src="images/plate-1.png" />
+                  </div>
+                  <div class="slide">
+                    <img src="images/plat-2e.png" />
+                  </div>
+                  <div class="slide">
+                    <img src="images/plate-3.png" />
+                  </div>
+                  <div class="slide">
+                    <img src="images/plate-4.png" />
+                  </div>
                 </div>
-            </div>
-            </div>
+                <div class="text-container">
+                    <h1>Lorem ipsum dolor sit.</h1>
+                    <h4>Lorem ipsum dolor sit amet.</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non iste, <br> recusandae eos nostrum reiciendis numquam!</p>
+                </div>
+                <div class="controls">
+                  <a href="#" data-index="1" class="active">
+                    <div class="btn"></div>
+                  </a>
+                  <a href="#" data-index="2">
+                   
+                  </a>
+                  <a href="#" data-index="3">
+                   
+                  </a>
+                  <a href="#" data-index="4">
+
+                   </a>
+                </div>
+                <button class="product" >PRODUCT</button>
+              </div>
         </div>
     </section>
 
@@ -425,13 +442,70 @@
     });
 
 
+
+
+    const carousel = document.querySelector(".carousel");
+    const slides = document.querySelectorAll(".slide");
+    const controlLinks = document.querySelectorAll(".controls a");
+
+    let i = 0,
+    j = 1,
+    intervalId;
+
+    const intervalFn = () => {
+    intervalId = setInterval(() => {
+        carousel.style.rotate = `-${++i * 45}deg`;
+
+        document.querySelector(".slide.active").classList.remove("active");
+        const activeSlide = document.querySelector(`.slide:nth-child(${++j})`);
+        activeSlide.classList.add("active");
+
+        document.querySelector("a.active").classList.remove("active");
+        const activeLink = document.querySelector(`.controls a:nth-child(${j})`);
+        activeLink.classList.add("active");
+
+        j === 4 && (j = 0);
+    }, 4000);
+    };
+
+    intervalFn();
+
+    controlLinks.forEach((control) => {
+    control.addEventListener("click", () => {
+        clearInterval(intervalId);
+        carousel.style.rotate = `-${
+        (i - j + Number(control.dataset.index)) * 45
+        }deg`;
+
+        document.querySelector(".slide.active").classList.remove("active");
+        const activeSlide = document.querySelector(
+        `.slide:nth-child(${control.dataset.index})`
+        );
+        activeSlide.classList.add("active");
+
+        document.querySelector("a.active").classList.remove("active");
+        control.classList.add("active");
+    });
+    });
+
+    carousel.addEventListener("mouseenter", () => {
+    clearInterval(intervalId);
+    console.log("Pause");
+    });
+
+    carousel.addEventListener("mouseleave", () => {
+    intervalFn();
+    console.log("Play");
+    });
+
+
+
     </script>
 
 
 
     <script src="js/swiper-bundle.min.js"></script>
 
- 
     <script src="js/script.js"></script>
 </body>
 </html>

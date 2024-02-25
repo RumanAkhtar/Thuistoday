@@ -412,7 +412,133 @@ nav.close ~ .dashboard-2{
     height: 280px;
 }
   
+
+
+
+.slideshow {
+    height: 100vh;
+    /* background-color: antiquewhite; */
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+   overflow: hidden;
+}
   
+.carousel {
+    width: 25rem;
+    height: 25rem;
+    border: 0.2rem solid#c1c0bf;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-left: 80px;
+    flex-shrink: 0;
+    transition: rotate 1s;
+ 
+}
+  
+.slide {
+    width: 20rem;
+    position: absolute;
+}
+  
+.slide:nth-child(1) {
+    bottom: -4rem;
+}
+  
+.slide:nth-child(2) {
+    left: -4rem;
+}
+  
+.slide:nth-child(3) {
+    top: -4rem;
+}
+  
+.slide:nth-child(4) {
+    right: -14rem;
+
+}
+  
+.slide.active img {
+    transform: scale(1.5);
+    gap: 50px;
+    transition: transform 0.5s 0.5s;
+}
+  
+.slide img {
+    width: 50%;
+    object-fit: cover;
+    transition: transform 0.5s;
+    filter: drop-shadow(5px 5px 10px #555);
+}
+  
+.controls {
+    position: sticky;
+    bottom: 5rem;
+    margin-right: 28.5%;
+}
+  
+.controls a {
+    height: 15px;
+    width: 15px;
+    display: inline-block;
+    cursor: pointer;
+    background-color: gray;
+    margin: 15px;
+    transition: background-color 1s;
+    
+}
+  
+.controls  a.active {
+    background-color: #F96704;
+    
+}
+  
+
+.slideshow .text-container{
+    position: absolute;
+    top: 35%;
+    margin-left: 55%;
+}
+
+.slideshow .text-container h1{
+    color: #F96704;
+}
+
+.slideshow .text-container h4{
+    color: #F96704;
+}
+
+
+.slideshow .text-container p{
+    color: black;
+}
+
+
+
+
+
+.slideshow .product{
+    position: absolute;
+    margin-left: 56%;
+    margin-top: 80px;
+    border-radius: 30px;
+    background-color: #F96704;
+    color: white;
+    border: none;
+    padding: 10px 10px;
+    width: 150px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.product:hover{
+    background-color: #fa7318;
+}
   
 .card .verticle{
     writing-mode: vertical-lr;
