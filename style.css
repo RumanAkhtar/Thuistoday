@@ -435,7 +435,7 @@ nav.close ~ .dashboard-2{
     justify-content: center;
     align-items: center;
     position: relative;
-    margin-left: 80px;
+    margin-left: 110px;
     flex-shrink: 0;
     transition: rotate 1s;
  
@@ -480,6 +480,7 @@ nav.close ~ .dashboard-2{
     position: sticky;
     bottom: 5rem;
     margin-right: 28.5%;
+    margin-top: 20px;
 }
   
 .controls a {
@@ -507,10 +508,12 @@ nav.close ~ .dashboard-2{
 
 .slideshow .text-container h1{
     color: #F96704;
+    font-size: 35px;
 }
 
 .slideshow .text-container h4{
     color: #F96704;
+    font-size: 25px;
 }
 
 
@@ -525,7 +528,6 @@ nav.close ~ .dashboard-2{
 .slideshow .product{
     position: absolute;
     margin-left: 56%;
-    margin-top: 80px;
     border-radius: 30px;
     background-color: #F96704;
     color: white;
@@ -534,6 +536,7 @@ nav.close ~ .dashboard-2{
     width: 150px;
     font-size: 15px;
     cursor: pointer;
+    margin-top: 125px;
 }
 
 .product:hover{
